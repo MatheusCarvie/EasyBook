@@ -1,0 +1,10 @@
+# Build
+*/obj/
+*/bin/
+
+# Configuração do Ambiente
+*.env
+
+# Visual Studio
+.vs/
+/.vs
