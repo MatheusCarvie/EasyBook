@@ -1,11 +1,12 @@
 ﻿using EasyBook.Application.Services.Base;
+using EasyBook.Domain.Entities.Base;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyBook.Api.Controllers.Base
 {
     [Route("api/[controller]")]
     [ApiController]
-    public abstract class AppControllerBase<TEntity, TModel, TDto> : ControllerBase where TEntity : class
+    public abstract class AppControllerBase<TEntity, TModel, TDto> : ControllerBase where TEntity : AppEntityBase
     {
         private readonly AppServiceBase<TEntity, TModel, TDto> _service;
         public AppControllerBase(AppServiceBase<TEntity, TModel, TDto> service)

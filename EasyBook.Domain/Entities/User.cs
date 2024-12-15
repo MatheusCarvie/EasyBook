@@ -1,8 +1,9 @@
-﻿namespace EasyBook.Domain.Entities
+﻿using EasyBook.Domain.Entities.Base;
+
+namespace EasyBook.Domain.Entities
 {
-    public class User
+    public class User : AppEntityBase
     {
-        public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string .Empty;

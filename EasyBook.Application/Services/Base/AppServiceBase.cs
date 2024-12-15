@@ -1,9 +1,10 @@
-﻿using EasyBook.Domain.Interfaces;
+﻿using EasyBook.Domain.Entities.Base;
+using EasyBook.Domain.Interfaces;
 using EasyBook.Infrastructure.Repositorys.Base;
 
 namespace EasyBook.Application.Services.Base
 {
-    public abstract class AppServiceBase<TEntity, TModel, TDto> : IActionBase<TModel, TDto> where TEntity : class
+    public abstract class AppServiceBase<TEntity, TModel, TDto> : IServiceRepository<TModel, TDto> where TEntity : AppEntityBase
     {
         private readonly AppRepositoryBase<TEntity, TModel, TDto> _repository;
 

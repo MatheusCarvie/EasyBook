@@ -1,8 +1,9 @@
-﻿namespace EasyBook.Domain.Models
+﻿using EasyBook.Domain.Models.Base;
+
+namespace EasyBook.Domain.Models
 {
-    public class UserModel
+    public class UserModel : AppModelBase
     {
-        public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;

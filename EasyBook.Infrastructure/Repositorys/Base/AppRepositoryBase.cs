@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using EasyBook.Domain.Entities.Base;
 using EasyBook.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyBook.Infrastructure.Repositorys.Base
 {
-    public abstract class AppRepositoryBase<TEntity, TModel, TDto> : IActionBase<TModel, TDto> 
-        where TEntity : class // TEntity deve ser uma classe
+    public abstract class AppRepositoryBase<TEntity, TModel, TDto> : IServiceRepository<TModel, TDto> 
+        where TEntity : AppEntityBase // TEntity deve ser uma classe
     {
         private readonly AppDbContext _context;
         private IMapper _mapper;
@@ -45,6 +46,10 @@ namespace EasyBook.Infrastructure.Repositorys.Base
             var dbSet = _context.Set<TEntity>();
             var entity = _mapper.Map<TEntity>(model);
 
+            //Atualiza os campos de data de Criação e Atualização
+            entity.Created = DateTime.UtcNow;
+            entity.Updated = DateTime.UtcNow;
+
             // Adiciona uma nova entidade
             await dbSet.AddAsync(entity);
 
@@ -61,13 +66,13 @@ namespace EasyBook.Infrastructure.Repositorys.Base
 
             if (entity == null) throw new Exception("Dado invalido");
 
-            // Desanexa a entidade para evitar conflitos de contexto
-            dbSet.Entry(entity).State = EntityState.Detached;
+            // Altera os valores da Entidade para os valores da Model
+            var mappedEntity = _mapper.Map(model, entity);
 
-            // Mapeia a entidade com os valores da model
-            var mappedEntity= _mapper.Map<TEntity>(model);
+            // Atualiza a data de Atualização
+            mappedEntity.Updated = DateTime.UtcNow;
 
-            // Atualiza os valores da entidade
+            // Informa que houve atualizações
             dbSet.Update(mappedEntity);
 
             // Salva as alterações no banco de dados

@@ -1,6 +1,6 @@
 ﻿namespace EasyBook.Domain.Interfaces
 {
-    public interface IActionBase<TModel, TDto>
+    public interface IServiceRepository<TModel, TDto>
     {
         public Task<TDto[]> GetAll();
         public Task<TDto> GetById(Guid id);
