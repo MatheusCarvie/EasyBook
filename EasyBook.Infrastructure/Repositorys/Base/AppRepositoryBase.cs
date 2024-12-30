@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using EasyBook.Domain.Entities.Base;
+using EasyBook.Domain.Exceptions;
 using EasyBook.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace EasyBook.Infrastructure.Repositorys.Base
 {
@@ -36,7 +38,7 @@ namespace EasyBook.Infrastructure.Repositorys.Base
             // Obtem a entidade pelo id
             var entity = await dbSet.FindAsync(id);
 
-            if (entity == null) throw new Exception("Dado invalido");
+            if (entity == null) throw new AppException("Dado invalido", HttpStatusCode.NotFound);
 
             return _mapper.Map<TDto>(entity);
         }
@@ -64,7 +66,7 @@ namespace EasyBook.Infrastructure.Repositorys.Base
             var dbSet = _context.Set<TEntity>();
             var entity = await dbSet.FindAsync(id);
 
-            if (entity == null) throw new Exception("Dado invalido");
+            if (entity == null) throw new AppException("Dado invalido", HttpStatusCode.NotFound);
 
             // Altera os valores da Entidade para os valores da Model
             var mappedEntity = _mapper.Map(model, entity);
@@ -86,7 +88,7 @@ namespace EasyBook.Infrastructure.Repositorys.Base
             var dbSet = _context.Set<TEntity>();
             var entity = await dbSet.FindAsync(id);
 
-            if(entity == null) throw new Exception("Dado invalido");
+            if(entity == null) throw new AppException("Dado invalido", HttpStatusCode.NotFound);
             
             dbSet.Remove(entity);
             await _context.SaveChangesAsync();

@@ -1,4 +1,5 @@
 using DotNetEnv;
+using EasyBook.Api.Middlewares;
 using EasyBook.Application.Services;
 using EasyBook.CrossCutting.Mappings;
 using EasyBook.Infrastructure;
@@ -34,6 +35,9 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserRepository>();
 
 var app = builder.Build();
+
+// Registra o middleware de tratamento de erros
+app.UseMiddleware<ErrorMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
