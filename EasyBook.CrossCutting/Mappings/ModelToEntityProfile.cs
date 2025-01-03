@@ -9,6 +9,10 @@ namespace EasyBook.CrossCutting.Mappings
         public ModelToEntityProfile()
         {
             CreateMap<UserModel, User>();
+            CreateMap<BookModel, Book>();
+            CreateMap<BookstoreModel, Bookstore>();
+            CreateMap<LoanModel, Loan>();
+            CreateMap<ReturnModel, Return>();
         }
     }
 }

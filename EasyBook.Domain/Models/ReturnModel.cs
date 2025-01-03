@@ -6,6 +6,5 @@ namespace EasyBook.Domain.Models
     {
         public Guid LoanId { get; set; }
         public DateTime Date { get; set; }
-        public bool IsReturnedOnTime { get; set; }
     }
 }

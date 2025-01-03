@@ -34,7 +34,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 // Define os Mappers
 builder.Services.AddAutoMapper(typeof(EntityToDtoProfile), typeof(ModelToEntityProfile));
 
-// Injeção de dependencias
+// Injeção de dependencias das Service e dos Repositorys
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserRepository>();
 

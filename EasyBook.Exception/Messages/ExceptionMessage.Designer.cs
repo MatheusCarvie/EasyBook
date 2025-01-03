@@ -115,11 +115,74 @@ namespace EasyBook.Exceptions.Messages {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Address is required.
+        /// </summary>
+        public static string REQUIRED_ADDRESS {
+            get {
+                return ResourceManager.GetString("REQUIRED_ADDRESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Author is required.
+        /// </summary>
+        public static string REQUIRED_AUTHOR {
+            get {
+                return ResourceManager.GetString("REQUIRED_AUTHOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a BookId is required.
+        /// </summary>
+        public static string REQUIRED_BOOK_ID {
+            get {
+                return ResourceManager.GetString("REQUIRED_BOOK_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a BookstoreId is required.
+        /// </summary>
+        public static string REQUIRED_BOOKSTORE_ID {
+            get {
+                return ResourceManager.GetString("REQUIRED_BOOKSTORE_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Date is required.
+        /// </summary>
+        public static string REQUIRED_DATE {
+            get {
+                return ResourceManager.GetString("REQUIRED_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email is required.
         /// </summary>
         public static string REQUIRED_EMAIL {
             get {
                 return ResourceManager.GetString("REQUIRED_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Image is required.
+        /// </summary>
+        public static string REQUIRED_IMAGE {
+            get {
+                return ResourceManager.GetString("REQUIRED_IMAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Loan is required.
+        /// </summary>
+        public static string REQUIRED_LOAN_ID {
+            get {
+                return ResourceManager.GetString("REQUIRED_LOAN_ID", resourceCulture);
             }
         }
         
@@ -138,6 +201,24 @@ namespace EasyBook.Exceptions.Messages {
         public static string REQUIRED_PASSWORD {
             get {
                 return ResourceManager.GetString("REQUIRED_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Phone is required.
+        /// </summary>
+        public static string REQUIRED_PHONE {
+            get {
+                return ResourceManager.GetString("REQUIRED_PHONE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a UserId is required.
+        /// </summary>
+        public static string REQUIRED_USER_ID {
+            get {
+                return ResourceManager.GetString("REQUIRED_USER_ID", resourceCulture);
             }
         }
     }

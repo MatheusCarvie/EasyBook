@@ -144,4 +144,31 @@
   <data name="INVALID_PASSWORD" xml:space="preserve">
     <value>Short password. Minimum 8 characters</value>
   </data>
+  <data name="REQUIRED_AUTHOR" xml:space="preserve">
+    <value>Author is required</value>
+  </data>
+  <data name="REQUIRED_BOOKSTORE_ID" xml:space="preserve">
+    <value>BookstoreId is required</value>
+  </data>
+  <data name="REQUIRED_IMAGE" xml:space="preserve">
+    <value>Image is required</value>
+  </data>
+  <data name="REQUIRED_ADDRESS" xml:space="preserve">
+    <value>Address is required</value>
+  </data>
+  <data name="REQUIRED_PHONE" xml:space="preserve">
+    <value>Phone is required</value>
+  </data>
+  <data name="REQUIRED_USER_ID" xml:space="preserve">
+    <value>UserId is required</value>
+  </data>
+  <data name="REQUIRED_BOOK_ID" xml:space="preserve">
+    <value>BookId is required</value>
+  </data>
+  <data name="REQUIRED_DATE" xml:space="preserve">
+    <value>Date is required</value>
+  </data>
+  <data name="REQUIRED_LOAN_ID" xml:space="preserve">
+    <value>Loan is required</value>
+  </data>
 </root>
