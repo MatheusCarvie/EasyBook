@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using EasyBook.Domain.Entities.Base;
-using EasyBook.Domain.Exceptions;
 using EasyBook.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using EasyBook.Exceptions;
+using EasyBook.Exceptions.Messages;
 using System.Net;
 
 namespace EasyBook.Infrastructure.Repositorys.Base
@@ -11,7 +12,7 @@ namespace EasyBook.Infrastructure.Repositorys.Base
         where TEntity : AppEntityBase // TEntity deve ser uma classe
     {
         private readonly AppDbContext _context;
-        private IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public AppRepositoryBase(AppDbContext context, IMapper mapper)
         {
@@ -38,7 +39,7 @@ namespace EasyBook.Infrastructure.Repositorys.Base
             // Obtem a entidade pelo id
             var entity = await dbSet.FindAsync(id);
 
-            if (entity == null) throw new AppException("Dado invalido", HttpStatusCode.NotFound);
+            if (entity == null) throw new AppException(ExceptionMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
 
             return _mapper.Map<TDto>(entity);
         }
@@ -66,7 +67,7 @@ namespace EasyBook.Infrastructure.Repositorys.Base
             var dbSet = _context.Set<TEntity>();
             var entity = await dbSet.FindAsync(id);
 
-            if (entity == null) throw new AppException("Dado invalido", HttpStatusCode.NotFound);
+            if (entity == null) throw new AppException(ExceptionMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
 
             // Altera os valores da Entidade para os valores da Model
             var mappedEntity = _mapper.Map(model, entity);
@@ -88,11 +89,18 @@ namespace EasyBook.Infrastructure.Repositorys.Base
             var dbSet = _context.Set<TEntity>();
             var entity = await dbSet.FindAsync(id);
 
-            if(entity == null) throw new AppException("Dado invalido", HttpStatusCode.NotFound);
+            if(entity == null) throw new AppException(ExceptionMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
             
             dbSet.Remove(entity);
             await _context.SaveChangesAsync();
             return;
+        }
+
+        public async Task<TEntity?> FindById(Guid id)
+        {
+            var dbSet = _context.Set<TEntity>();
+            var entity = await dbSet.FindAsync(id);
+            return entity;
         }
     }
 }

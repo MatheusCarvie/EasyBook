@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EasyBook.CrossCutting\EasyBook.CrossCutting.csproj" />
     <ProjectReference Include="..\EasyBook.Domain\EasyBook.Domain.csproj" />
+    <ProjectReference Include="..\EasyBook.Exception\EasyBook.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

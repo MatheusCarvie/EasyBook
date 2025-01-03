@@ -1,5 +1,6 @@
 ﻿using EasyBook.Application.Services.Base;
 using EasyBook.Domain.Entities.Base;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyBook.Api.Controllers.Base
@@ -9,9 +10,11 @@ namespace EasyBook.Api.Controllers.Base
     public abstract class AppControllerBase<TEntity, TModel, TDto> : ControllerBase where TEntity : AppEntityBase
     {
         private readonly AppServiceBase<TEntity, TModel, TDto> _service;
-        public AppControllerBase(AppServiceBase<TEntity, TModel, TDto> service)
+        private readonly IValidator<TModel> _validator;
+        public AppControllerBase(AppServiceBase<TEntity, TModel, TDto> service, IValidator<TModel> validator)
         {
             _service = service;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -31,6 +34,8 @@ namespace EasyBook.Api.Controllers.Base
         [HttpPost]
         public async Task<ActionResult<TDto>> Create(TModel model)
         {
+            await _validator.ValidateAndThrowAsync(model);
+
             var response = await _service.Create(model);
             return Created(string.Empty, response);
         }

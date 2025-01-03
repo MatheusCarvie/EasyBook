@@ -37,5 +37,10 @@ namespace EasyBook.Application.Services.Base
            await _repository.Delete(id);
             return;
         }
+
+        public async Task<TEntity?> FindById(Guid id)
+        {
+           return await _repository.FindById(id);
+        }
     }
 }

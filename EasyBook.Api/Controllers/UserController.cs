@@ -1,4 +1,5 @@
 ﻿using EasyBook.Api.Controllers.Base;
+using EasyBook.Api.Validations;
 using EasyBook.Application.Services;
 using EasyBook.Domain.Dtos;
 using EasyBook.Domain.Entities;
@@ -11,7 +12,7 @@ namespace EasyBook.Api.Controllers
     [ApiController]
     public class UserController : AppControllerBase<User, UserModel, UserDto>
     {
-        public UserController(UserService service) : base(service)
+        public UserController(UserService service, UserValidation validation) : base(service, validation)
         {
             
         }

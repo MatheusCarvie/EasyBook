@@ -1,11 +1,11 @@
-﻿namespace EasyBook.Domain.Exceptions
+﻿namespace EasyBook.Exceptions
 {
     public class ResultException
     {
-        public string Error { get; set; }
+        public object? Error { get; set; }
         public int StatusCode { get; set; }
 
-        public ResultException(string error, int statusCode)
+        public ResultException(object? error, int statusCode)
         {
             Error = error;
             StatusCode = statusCode;

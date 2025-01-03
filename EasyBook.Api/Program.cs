@@ -4,6 +4,7 @@ using EasyBook.Application.Services;
 using EasyBook.CrossCutting.Mappings;
 using EasyBook.Infrastructure;
 using EasyBook.Infrastructure.Repositorys;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     // Define a string de conexao para o banco de dados
     options.UseSqlServer(connectionString);
 });
+
+// Injeta as validações
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 // Define os Mappers
 builder.Services.AddAutoMapper(typeof(EntityToDtoProfile), typeof(ModelToEntityProfile));

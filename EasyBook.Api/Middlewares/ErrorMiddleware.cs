@@ -1,6 +1,8 @@
-﻿using EasyBook.Domain.Exceptions;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
+using EasyBook.Exceptions;
+using EasyBook.Exceptions.Messages;
+using FluentValidation;
 
 namespace EasyBook.Api.Middlewares
 {
@@ -31,16 +33,28 @@ namespace EasyBook.Api.Middlewares
 
             if (exception is AppException appException)
             {
+                // Exception padrao do sistema
                 statusCode = appException.StatusCode;
                 result = new ResultException(appException.Message, (int)appException.StatusCode);
-            }else
+            }
+            else if(exception is ValidationException validationException)
+            {
+                // Exception provinda pela validação da model
+                statusCode = HttpStatusCode.BadRequest;
+                var errors = validationException.Errors.Select(e => e.ErrorMessage).ToList();
+                result = new ResultException(errors, (int)statusCode);
+            }
+            else
             {
                 statusCode = HttpStatusCode.InternalServerError;
-                result = new ResultException("Internal server error", (int)statusCode);
+                result = new ResultException(ExceptionMessage.INTERNAL_SERVER, (int)statusCode);
             }
 
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)statusCode;
+
+            // ToDo: Substituir por um ILogger (Log de produção)
+            Console.WriteLine("StackTrace: ", exception.ToString());
 
             return context.Response.WriteAsync(JsonSerializer.Serialize(result));
         }

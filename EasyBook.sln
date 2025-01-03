@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyBook.Exceptions", "EasyBook.Exception\EasyBook.Exceptions.csproj", "{B19771E5-AECA-4701-8723-1E2F8065CC48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{0D31E446-FA04-44EA-9402-76D9A1D14491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D31E446-FA04-44EA-9402-76D9A1D14491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D31E446-FA04-44EA-9402-76D9A1D14491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19771E5-AECA-4701-8723-1E2F8065CC48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19771E5-AECA-4701-8723-1E2F8065CC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19771E5-AECA-4701-8723-1E2F8065CC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19771E5-AECA-4701-8723-1E2F8065CC48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
