@@ -1,8 +1,11 @@
-﻿namespace EasyBook.Domain.Entities.Base
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace EasyBook.Domain.Entities.Base
 {
     public class AppEntityBase
     {
-        public Guid Id { get; set; }
+        [Key]
+        public Guid Id { get; set; } = new Guid();
         public DateTime Updated { get; set; }
         public DateTime Created { get; set; }
     }
