@@ -1,10 +1,7 @@
 using DotNetEnv;
 using EasyBook.Api.Middlewares;
-using EasyBook.Application.Services;
-using EasyBook.CrossCutting.Mappings;
 using EasyBook.Infrastructure;
-using EasyBook.Infrastructure.Repositorys;
-using FluentValidation;
+using EasyBook.Api.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,15 +25,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
-// Injeta as validações
-builder.Services.AddValidatorsFromAssemblyContaining<Program>();
-
-// Define os Mappers
-builder.Services.AddAutoMapper(typeof(EntityToDtoProfile), typeof(ModelToEntityProfile));
-
-// Injeção de dependencias das Service e dos Repositorys
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<UserRepository>();
+// Configurações das dependencias
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 
