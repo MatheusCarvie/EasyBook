@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyBook.Api", "EasyBook.Api\EasyBook.Api.csproj", "{A0FC9DE1-1258-48FD-921F-BD1A677725D1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyBook.Application", "EasyBook.Application\EasyBook.Application.csproj", "{CB3B6F6A-8F69-4CB1-9DF1-DC85FF837DB1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyBook.Domain", "EasyBook.Domain\EasyBook.Domain.csproj", "{F9C10316-6088-4BEF-B3C5-86D9CE17069A}"
@@ -18,7 +16,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyBook.Exceptions", "EasyBook.Exception\EasyBook.Exceptions.csproj", "{B19771E5-AECA-4701-8723-1E2F8065CC48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyBook.Exceptions", "EasyBook.Exception\EasyBook.Exceptions.csproj", "{B19771E5-AECA-4701-8723-1E2F8065CC48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyBook.Server", "EasyBook.Server\EasyBook.Server.csproj", "{391C3509-246C-4C4F-A207-7D98E914F739}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D31E446-FA04-44EA-9402-76D9A1D14491} = {0D31E446-FA04-44EA-9402-76D9A1D14491}
+		{B19771E5-AECA-4701-8723-1E2F8065CC48} = {B19771E5-AECA-4701-8723-1E2F8065CC48}
+		{CB3B6F6A-8F69-4CB1-9DF1-DC85FF837DB1} = {CB3B6F6A-8F69-4CB1-9DF1-DC85FF837DB1}
+		{F9C10316-6088-4BEF-B3C5-86D9CE17069A} = {F9C10316-6088-4BEF-B3C5-86D9CE17069A}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +32,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A0FC9DE1-1258-48FD-921F-BD1A677725D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0FC9DE1-1258-48FD-921F-BD1A677725D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0FC9DE1-1258-48FD-921F-BD1A677725D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0FC9DE1-1258-48FD-921F-BD1A677725D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CB3B6F6A-8F69-4CB1-9DF1-DC85FF837DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CB3B6F6A-8F69-4CB1-9DF1-DC85FF837DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB3B6F6A-8F69-4CB1-9DF1-DC85FF837DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,6 +52,10 @@ Global
 		{B19771E5-AECA-4701-8723-1E2F8065CC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19771E5-AECA-4701-8723-1E2F8065CC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19771E5-AECA-4701-8723-1E2F8065CC48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{391C3509-246C-4C4F-A207-7D98E914F739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391C3509-246C-4C4F-A207-7D98E914F739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391C3509-246C-4C4F-A207-7D98E914F739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391C3509-246C-4C4F-A207-7D98E914F739}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

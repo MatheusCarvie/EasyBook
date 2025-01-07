@@ -1,0 +1,14 @@
+﻿.book {
+	background-color: white;
+	width: 200px;
+	height: 360px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.book img {
+	object-fit: cover;
+	width: 100%;
+	height: 69%;
+	pointer-events: none;
+}

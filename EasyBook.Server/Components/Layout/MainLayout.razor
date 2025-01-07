@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Routing;
+
+<div class="min-vh-100 h-auto d-flex flex-column">
+    <header class="bg-white shadow d-flex flex-row w-100 justify-content-between align-items-center px-md-3" style="height: 80px">
+        <div class="d-flex gap-3">
+            <NavLink href="" class="header-link">Livros</NavLink>
+            <NavLink href="" class="header-link">Livrarias</NavLink>
+        </div>
+        <div class="d-flex gap-3">
+            <NavLink href="" class="header-link">Meu perfil</NavLink>
+            <NavLink href="" class="header-link">Sair</NavLink>
+        </div>
+    </header>
+    <main class="h-100">
+        @Body
+    </main>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
